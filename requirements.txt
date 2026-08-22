@@ -6,3 +6,4 @@ pdfplumber==0.11.9
 langchain-text-splitters==1.1.2
 ollama==0.6.2
 fastapi[standard]==0.137.0
+sentence-transformers==6.0.0
