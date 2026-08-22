@@ -16,9 +16,9 @@ app.add_middleware(
 
 class ChatRequest(BaseModel):
     question: str
-
+    history: list[dict] = []  
 
 @app.post("/chat")
-def chat(payload: ChatRequest):
-    reponse = generer_reponse(payload.question)
+async def chat(payload: ChatRequest):
+    reponse = generer_reponse(payload.question, payload.history)
     return {"answer": reponse}

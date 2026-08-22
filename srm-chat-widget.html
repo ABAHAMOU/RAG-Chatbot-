@@ -12,74 +12,78 @@
 
   <!-- Launcher flottant -->
   <button id="srm-launcher" aria-label="Ouvrir l'assistant SRM Agadir" aria-expanded="false">
-    <svg id="srm-launcher-icon-open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2.5C12 2.5 6.5 9.2 6.5 13.6C6.5 16.9 8.9 19.5 12 19.5C15.1 19.5 17.5 16.9 17.5 13.6C17.5 9.2 12 2.5 12 2.5Z" fill="currentColor"/>
-    </svg>
+    <img id="srm-launcher-icon-open" src="src/srm-logo.png" alt="" />
     <svg id="srm-launcher-icon-close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
     </svg>
   </button>
 
-  <!-- Panneau de chat -->
-  <section id="srm-panel" role="dialog" aria-label="Assistant virtuel SRM Agadir" aria-hidden="true">
+  <!-- Fenêtre de chat + bannière -->
+  <div id="srm-flyout" aria-hidden="true">
 
-    <header id="srm-header">
-      <div id="srm-header-top">
-        <div id="srm-header-identity">
-          <span id="srm-header-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 6.5 9.2 6.5 13.6C6.5 16.9 8.9 19.5 12 19.5C15.1 19.5 17.5 16.9 17.5 13.6C17.5 9.2 12 2.5 12 2.5Z" fill="currentColor"/></svg>
-          </span>
-          <div>
-            <h2>Assistant SRM
-              <span id="srm-verified-badge" aria-label="Assistant vérifié" title="Assistant vérifié">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M9 12.5L11 14.5L15.5 9.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </h2>
-            <p id="srm-header-status">Votre assistant virtuel pour toutes vos questions</p>
+    <!-- Bannière visuelle à côté de la fenêtre de chat -->
+    <div id="srm-side-banner" aria-hidden="true">
+      <img src="src/srm_building.png" alt="" />
+    </div>
+
+    <!-- Panneau de chat -->
+    <section id="srm-panel" role="dialog" aria-label="Assistant virtuel SRM Agadir">
+
+      <header id="srm-header">
+        <div id="srm-header-top">
+          <div id="srm-header-identity">
+            <div>
+              <h2>Assistant SRM
+                <span id="srm-verified-badge" aria-label="Assistant vérifié" title="Assistant vérifié">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M9 12.5L11 14.5L15.5 9.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </h2>
+              <p id="srm-header-status">Votre assistant virtuel pour toutes vos questions</p>
+            </div>
+          </div>
+          <div id="srm-header-actions">
+            <button id="srm-theme-toggle" type="button" aria-label="Basculer le mode sombre / clair">
+              <svg id="srm-theme-icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="4.4" fill="currentColor"/>
+                <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                  <path d="M12 2.5V4.6"/><path d="M12 19.4V21.5"/>
+                  <path d="M4.2 4.2L5.7 5.7"/><path d="M18.3 18.3L19.8 19.8"/>
+                  <path d="M2.5 12H4.6"/><path d="M19.4 12H21.5"/>
+                  <path d="M4.2 19.8L5.7 18.3"/><path d="M18.3 5.7L19.8 4.2"/>
+                </g>
+              </svg>
+              <svg id="srm-theme-icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.2 14.6C18.9 15.2 17.5 15.5 16 15.4C11.5 15.1 8 11.4 8 6.9C8 5.5 8.3 4.2 8.9 3C5.2 4.1 2.5 7.6 2.5 11.7C2.5 16.7 6.5 20.7 11.5 20.7C15.5 20.7 19 18.1 20.2 14.6Z" fill="currentColor"/>
+              </svg>
+            </button>
+            <button id="srm-minimize" aria-label="Réduire la fenêtre">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
         </div>
-        <div id="srm-header-actions">
-          <button id="srm-theme-toggle" type="button" aria-label="Basculer le mode sombre / clair">
-            <svg id="srm-theme-icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="4.4" fill="currentColor"/>
-              <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-                <path d="M12 2.5V4.6"/><path d="M12 19.4V21.5"/>
-                <path d="M4.2 4.2L5.7 5.7"/><path d="M18.3 18.3L19.8 19.8"/>
-                <path d="M2.5 12H4.6"/><path d="M19.4 12H21.5"/>
-                <path d="M4.2 19.8L5.7 18.3"/><path d="M18.3 5.7L19.8 4.2"/>
-              </g>
-            </svg>
-            <svg id="srm-theme-icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.2 14.6C18.9 15.2 17.5 15.5 16 15.4C11.5 15.1 8 11.4 8 6.9C8 5.5 8.3 4.2 8.9 3C5.2 4.1 2.5 7.6 2.5 11.7C2.5 16.7 6.5 20.7 11.5 20.7C15.5 20.7 19 18.1 20.2 14.6Z" fill="currentColor"/>
-            </svg>
-          </button>
-          <button id="srm-minimize" aria-label="Réduire la fenêtre">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>
-    </header>
+      </header>
 
-    <div id="srm-messages" aria-live="polite"></div>
+      <div id="srm-messages" aria-live="polite"></div>
 
-    <div id="srm-quick-replies"></div>
+      <div id="srm-quick-replies"></div>
 
-    <form id="srm-input-row">
-      <button type="button" id="srm-attach" aria-label="Joindre un fichier" tabindex="-1">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 8.6L9.6 16.5C8.3 17.8 6.2 17.8 4.9 16.5C3.6 15.2 3.6 13.1 4.9 11.8L13.3 3.4C14.2 2.5 15.6 2.5 16.5 3.4C17.4 4.3 17.4 5.7 16.5 6.6L8.4 14.7C8 15.1 7.3 15.1 6.9 14.7C6.5 14.3 6.5 13.6 6.9 13.2L14.3 5.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <textarea
-        id="srm-input"
-        rows="1"
-        placeholder="Écrivez votre message…"
-        aria-label="Votre message"
-      ></textarea>
-      <button type="submit" id="srm-send" aria-label="Envoyer le message">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12L20 4L14 20L11 13L4 12Z" fill="currentColor"/></svg>
-      </button>
-    </form>
-    <p id="srm-disclaimer">Les réponses sont générées automatiquement à partir des documents SRM Agadir et peuvent comporter des erreurs.</p>
-  </section>
+      <form id="srm-input-row">
+        <button type="button" id="srm-attach" aria-label="Joindre un fichier" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 8.6L9.6 16.5C8.3 17.8 6.2 17.8 4.9 16.5C3.6 15.2 3.6 13.1 4.9 11.8L13.3 3.4C14.2 2.5 15.6 2.5 16.5 3.4C17.4 4.3 17.4 5.7 16.5 6.6L8.4 14.7C8 15.1 7.3 15.1 6.9 14.7C6.5 14.3 6.5 13.6 6.9 13.2L14.3 5.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <textarea
+          id="srm-input"
+          rows="1"
+          placeholder="Écrivez votre message…"
+          aria-label="Votre message"
+        ></textarea>
+        <button type="submit" id="srm-send" aria-label="Envoyer le message">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 12L20 4L14 20L11 13L4 12Z" fill="currentColor"/></svg>
+        </button>
+      </form>
+      <p id="srm-disclaimer">Les réponses sont générées automatiquement à partir des documents SRM Agadir et peuvent comporter des erreurs.</p>
+    </section>
+  </div>
 </div>
 
 <style>
@@ -150,24 +154,26 @@
 
   /* ---------- Launcher ---------- */
   #srm-launcher {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
-    border: none;
+    border: 1px solid var(--srm-line);
     cursor: pointer;
-    background: linear-gradient(155deg, var(--srm-green) 0%, var(--srm-navy) 78%);
-    color: #fff;
+    background: #fff;
+    color: var(--srm-navy);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: var(--srm-shadow);
     transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, background .25s ease;
     position: relative;
+    overflow: hidden;
   }
   #srm-launcher:hover { transform: translateY(-2px) scale(1.04); }
   #srm-launcher:focus-visible { outline: 3px solid var(--srm-green); outline-offset: 3px; }
-  #srm-launcher svg { width: 26px; height: 26px; position: absolute; transition: opacity .2s ease, transform .3s ease; }
-  #srm-launcher-icon-close { opacity: 0; transform: rotate(-45deg) scale(.6); }
+  #srm-launcher svg,
+  #srm-launcher img { width: 42px; height: 42px; position: absolute; transition: opacity .2s ease, transform .3s ease; object-fit: contain; }
+  #srm-launcher-icon-close { width: 26px; height: 26px; opacity: 0; transform: rotate(-45deg) scale(.6); }
   #srm-chat-root.open #srm-launcher-icon-open { opacity: 0; transform: rotate(45deg) scale(.6); }
   #srm-chat-root.open #srm-launcher-icon-close { opacity: 1; transform: rotate(0) scale(1); }
 
@@ -188,6 +194,52 @@
   @media (prefers-reduced-motion: reduce) {
     #srm-launcher::after { animation: none; }
     .srm-msg { animation: none !important; }
+    #srm-side-banner img { animation: none !important; }
+    #srm-flyout.srm-shimmer::before { animation: none !important; }
+  }
+
+  /* ---------- Fenêtre flottante (panneau + bannière, collés) ---------- */
+  #srm-flyout {
+    position: absolute;
+    bottom: 84px;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--srm-shadow);
+    border: 1px solid var(--srm-line);
+    transform-origin: bottom right;
+    transform: scale(.92) translateY(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .28s cubic-bezier(.2,.9,.3,1), opacity .22s ease;
+  }
+  #srm-chat-root.open #srm-flyout {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  /* Reflet lumineux qui balaie l'ensemble à l'ouverture */
+  #srm-flyout::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent 42%, rgba(255,255,255,.5) 50%, transparent 58%);
+    opacity: 0;
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  #srm-flyout.srm-shimmer::before {
+    animation: srm-shimmer-sweep .9s ease-out;
+  }
+  @keyframes srm-shimmer-sweep {
+    0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
+    18%  { opacity: .6; }
+    100% { transform: translateX(160%) skewX(-12deg); opacity: 0; }
   }
 
   /* ---------- Panel ---------- */
@@ -197,25 +249,41 @@
     height: 600px;
     max-height: calc(100vh - 120px);
     background: var(--srm-panel-bg);
-    border-radius: 20px;
-    box-shadow: var(--srm-shadow);
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     overflow: hidden;
-    position: absolute;
-    bottom: 76px;
-    right: 0;
-    transform-origin: bottom right;
-    transform: scale(.92) translateY(12px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform .28s cubic-bezier(.2,.9,.3,1), opacity .22s ease, background .25s ease;
-    border: 1px solid var(--srm-line);
+    transition: background .25s ease;
+    position: relative;
+    z-index: 2;
   }
-  #srm-chat-root.open #srm-panel {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+
+  /* ---------- Bannière latérale (fondue dans le panneau) ---------- */
+  #srm-side-banner {
+    width: 480px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #srm-side-banner img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    animation: srm-kenburns 16s ease-in-out infinite alternate;
+  }
+  @keyframes srm-kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.13) translate(-2%, -1%); }
+  }
+  /* Zone de fondu où la photo se dissout dans le fond du panneau */
+  #srm-side-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 45%, var(--srm-panel-bg) 96%);
+    transition: background .25s ease;
+    pointer-events: none;
+  }
+  @media (max-width: 760px) {
+    #srm-side-banner { display: none; }
   }
 
   /* ---------- Header ---------- */
@@ -234,14 +302,6 @@
     gap: 10px;
   }
   #srm-header-identity { display: flex; align-items: center; gap: 11px; min-width: 0; }
-  #srm-header-mark {
-    width: 38px; height: 38px;
-    border-radius: 11px;
-    background: linear-gradient(155deg, var(--srm-green) 0%, var(--srm-navy) 100%);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  #srm-header-mark svg { width: 20px; height: 20px; color: #fff; }
   #srm-header h2 {
     font-family: 'SRM-Display', 'Manrope', sans-serif;
     font-size: 15.5px;
@@ -315,15 +375,18 @@
   .srm-msg.user { align-self: flex-end; flex-direction: row-reverse; }
 
   .srm-avatar {
-    width: 26px; height: 26px;
+    width: 32px; height: 32px;
     border-radius: 50%;
     flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     margin-top: 2px;
-    background: linear-gradient(155deg, var(--srm-green) 0%, var(--srm-navy) 100%);
-    color: #fff;
+    background: #fff;
+    border: 1px solid var(--srm-line);
+    overflow: hidden;
+    padding: 2px;
+    box-sizing: border-box;
   }
-  .srm-msg.bot .srm-avatar svg { width: 13px; height: 13px; }
+  .srm-msg.bot .srm-avatar img { width: 100%; height: 100%; object-fit: contain; }
   .srm-msg.user .srm-avatar { display: none; }
 
   .srm-bubble {
@@ -454,11 +517,13 @@
   /* ---------- Mobile ---------- */
   @media (max-width: 480px) {
     #srm-chat-root { bottom: 16px; right: 16px; }
+    #srm-flyout {
+      bottom: 80px;
+      right: -8px;
+    }
     #srm-panel {
       width: calc(100vw - 24px);
       height: calc(100vh - 110px);
-      bottom: 72px;
-      right: -8px;
     }
   }
 </style>
@@ -474,6 +539,7 @@
   const minimizeBtn = document.getElementById('srm-minimize');
   const themeToggle = document.getElementById('srm-theme-toggle');
   const panel     = document.getElementById('srm-panel');
+  const flyout    = document.getElementById('srm-flyout');
   const messages  = document.getElementById('srm-messages');
   const form      = document.getElementById('srm-input-row');
   const input     = document.getElementById('srm-input');
@@ -524,10 +590,14 @@
     const willOpen = forceOpen !== undefined ? forceOpen : !root.classList.contains('open');
     root.classList.toggle('open', willOpen);
     launcher.setAttribute('aria-expanded', String(willOpen));
-    panel.setAttribute('aria-hidden', String(!willOpen));
+    flyout.setAttribute('aria-hidden', String(!willOpen));
     if (willOpen) {
       if (!started) { bootstrapConversation(); started = true; }
       setTimeout(() => input.focus(), 260);
+      flyout.classList.remove('srm-shimmer');
+      // force reflow so the animation can retrigger on every open
+      void flyout.offsetWidth;
+      flyout.classList.add('srm-shimmer');
     }
   }
 
@@ -555,7 +625,7 @@
   }
 
   function botAvatarSVG() {
-    return '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 6.5 9.2 6.5 13.6C6.5 16.9 8.9 19.5 12 19.5C15.1 19.5 17.5 16.9 17.5 13.6C17.5 9.2 12 2.5 12 2.5Z" fill="currentColor"/></svg>';
+    return '<img src="src/srm-logo.png" alt="" />';
   }
 
   function addMessage(role, text) {
@@ -595,11 +665,16 @@
     if (el) el.remove();
   }
 
+  // Historique de conversation, envoyé au backend à chaque requête
+  // pour lui donner le contexte des échanges précédents.
+  let conversationHistory = [];
+
   async function sendMessage(text) {
     const question = (text !== undefined ? text : input.value).trim();
     if (!question) return;
 
     addMessage('user', question);
+    conversationHistory.push({ role: 'user', content: question });
     input.value = '';
     autoGrow();
     sendBtn.disabled = true;
@@ -609,13 +684,15 @@
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question })
+        body: JSON.stringify({ question, history: conversationHistory })
       });
 
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
+      const answer = data.answer || "Désolé, je n'ai pas pu générer de réponse.";
       removeTypingIndicator();
-      addMessage('bot', data.answer || "Désolé, je n'ai pas pu générer de réponse.");
+      addMessage('bot', answer);
+      conversationHistory.push({ role: 'assistant', content: answer });
     } catch (err) {
       removeTypingIndicator();
       addMessage('bot', "Une erreur est survenue lors de la connexion au serveur. Réessayez dans un instant.");
