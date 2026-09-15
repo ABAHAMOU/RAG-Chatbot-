@@ -15,7 +15,12 @@ Un chatbot RAG (Retrieval-Augmented Generation) capable de répondre à des ques
 ```bash
 pip install -r requirements.txt
 ```
+## Indexation des documents
 
+Avant de lancer l'API, placez vos PDF dans le dossier du projet et lancez l'indexation :
+
+```bash
+python processor.py
 ## Lancement
 
 Le projet nécessite **deux processus actifs en parallèle**, dans deux terminaux séparés :
